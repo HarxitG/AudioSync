@@ -1,4 +1,48 @@
-# Problem statement 3 
+# Problem 2 – Parallel Audio Stream Separation (Browser)
+
+## Overview
+
+This project demonstrates a solution to capture and separate simultaneous system audio (via screen capture) and microphone audio in a Chrome browser. The challenge addressed here is the echo or audio bleed caused when the microphone picks up system audio during simultaneous capture.
+
+Using the Web MediaStream APIs and the Web Audio API, this project captures both audio sources and applies real-time audio processing techniques to isolate and separate the microphone audio from the system audio, reducing echo and overlap.
+
+## Key Features
+
+- Capture system audio via `getDisplayMedia({ audio: true })`
+- Capture microphone audio via `getUserMedia({ audio: true })`
+- Real-time audio processing using Web Audio API nodes
+- Basic signal processing algorithms to minimize echo/bleed
+- Browser-based, runs entirely in Chrome without additional software
+
+## How It Works
+
+1. The app requests permissions to access both the microphone and system audio.
+2. It creates an `AudioContext` and connects the audio streams to separate nodes.
+3. Applies adaptive filtering / echo cancellation techniques to reduce microphone capture of system audio.
+4. Outputs the cleaned audio streams separately for further use or playback.
+
+## Usage
+
+1. Open `index.html` in a Chrome browser.
+2. Click the button to start capturing audio streams.
+3. Follow the prompts to allow microphone and screen capture permissions.
+4. The app will process and separate the audio streams in near real-time.
+
+## Requirements
+
+- Google Chrome (latest recommended)
+- Microphone and system audio access permissions
+
+## Notes
+
+- Echo cancellation is a complex signal processing problem; this demo uses a simplified approach for demonstration.
+- For best results, use headphones to minimize actual physical echo.
+
+## File Structure
+
+
+
+# Problem 3 Calendar Integration 
 
 I integrated Google Calendar into a full-stack web application by implementing OAuth2 authentication and calendar event management. I started by creating OAuth credentials in the Google Cloud Console and used a Node.js script to securely generate a refresh token. All sensitive information such as client ID, client secret, redirect URI, and refresh token are stored in a .env file and excluded from version control. The backend, built with Express and the Google APIs client library, handles authentication and provides RESTful endpoints to list, add, update, and delete calendar events. The frontend communicates with these endpoints to allow users to manage their Google Calendar events seamlessly. This setup ensures secure token handling, proper authorization flow, and full calendar functionality within the app.
 
