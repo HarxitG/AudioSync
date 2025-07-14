@@ -1,3 +1,7 @@
+# Problem statement 3 
+
+I integrated Google Calendar into a full-stack web application by implementing OAuth2 authentication and calendar event management. I started by creating OAuth credentials in the Google Cloud Console and used a Node.js script to securely generate a refresh token. All sensitive information such as client ID, client secret, redirect URI, and refresh token are stored in a .env file and excluded from version control. The backend, built with Express and the Google APIs client library, handles authentication and provides RESTful endpoints to list, add, update, and delete calendar events. The frontend communicates with these endpoints to allow users to manage their Google Calendar events seamlessly. This setup ensures secure token handling, proper authorization flow, and full calendar functionality within the app.
+
 ### Project Structure
 
 ```bash
