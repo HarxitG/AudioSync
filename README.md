@@ -46,6 +46,22 @@ Using the Web MediaStream APIs and the Web Audio API, this project captures both
 ├── styles.css # Optional UI styling
 ```
 
+### Trade-offs:
+
+Real-time performance vs. complexity: Achieving real-time audio separation in the browser requires simplified algorithms (e.g., basic filtering or spectral subtraction) instead of more accurate but computationally expensive techniques like deep learning-based source separation.
+
+Browser limitations: Access to system audio is limited and varies by browser and OS. Chrome allows screen capture with system audio, but this API is not supported everywhere.
+
+User experience vs accuracy: Using headphones can improve separation quality by reducing actual echo, but this is a user-side constraint and not a technical fix.
+
+### Limitations:
+
+Incomplete echo cancellation: The basic signal processing approach may not fully eliminate echo or bleed-through, especially in noisy environments.
+
+Dependence on hardware: Microphone quality, speaker placement, and room acoustics affect performance.
+
+No cross-browser support: Some browsers do not support capturing system audio via getDisplayMedia.
+
 # Problem 3 Calendar Integration 
 
 I integrated Google Calendar into a full-stack web application by implementing OAuth2 authentication and calendar event management. I started by creating OAuth credentials in the Google Cloud Console and used a Node.js script to securely generate a refresh token. All sensitive information such as client ID, client secret, redirect URI, and refresh token are stored in a .env file and excluded from version control. The backend, built with Express and the Google APIs client library, handles authentication and provides RESTful endpoints to list, add, update, and delete calendar events. The frontend communicates with these endpoints to allow users to manage their Google Calendar events seamlessly. This setup ensures secure token handling, proper authorization flow, and full calendar functionality within the app.
@@ -122,3 +138,20 @@ node index.js
 Your backend will be running at:
 ```
 http://localhost:3000
+
+### Trade-offs:
+
+Security vs convenience: Storing refresh tokens in .env files is convenient for development but requires careful handling in production to avoid token leakage.
+
+Token management complexity: Handling token refresh and revocation adds complexity, but is essential for maintaining long-term API access without re-authentication.
+
+Sync token usage: Using Google Calendar’s sync tokens improves efficiency but requires handling edge cases such as token expiration.
+
+### Limitations:
+
+Rate limits: Google Calendar API imposes rate limits that may restrict the frequency of event synchronization or updates.
+
+Partial offline support: Without a refresh token or with expired tokens, the app cannot access calendar data offline or without re-authentication.
+
+Single-user scope: The current setup focuses on a single user’s calendar and does not handle multi-user scenarios or delegation.
+
