@@ -39,8 +39,12 @@ Using the Web MediaStream APIs and the Web Audio API, this project captures both
 - For best results, use headphones to minimize actual physical echo.
 
 ## File Structure
-
-
+```bash
+/problem-2-audio-separation
+├── index.html # UI for starting audio capture
+├── index.js # Core logic for audio capture and separation
+├── styles.css # Optional UI styling
+```
 
 # Problem 3 Calendar Integration 
 
