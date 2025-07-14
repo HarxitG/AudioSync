@@ -1,0 +1,35 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>System + Mic Audio Recorder</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>AudioSync Recorder</h1>
+
+      <div class="controls">
+        <button id="startBtn">Start Capture</button>
+        <button id="stopBtn" disabled>Stop Capture</button>
+      </div>
+
+      <p id="status">Click "Start Capture" to begin.</p>
+
+      <div id="recordings">
+        <h2>Recordings</h2>
+        <div class="audio-group">
+          <h3>Microphone Audio</h3>
+          <audio id="micPlayback" controls></audio>
+        </div>
+        <div class="audio-group">
+          <h3>System Audio</h3>
+          <audio id="sysPlayback" controls></audio>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
